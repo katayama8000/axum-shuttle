@@ -14,6 +14,11 @@ export class SampleComponent implements OnInit {
 
   //toppings = new FormControl('');
 
+  name!: string;
+  purpose!: string;
+  detail!: string;
+  payfor!: string;
+
   accountList: string[] = [
     '厚生費',
     '発送費用',
@@ -26,5 +31,10 @@ export class SampleComponent implements OnInit {
 
   see(s: string) {
     console.log(s);
+  }
+
+  inside() {
+    console.log('inside');
+    console.log(this.name, this.purpose, this.detail);
   }
 }
