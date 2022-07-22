@@ -1,0 +1,8 @@
+<mat-form-field appearance="outline">
+  <mat-label>アカウントリスト</mat-label>
+  <mat-select>
+    <div *ngFor="let account of accountList">
+      <mat-option [value]="account" (click)="see(account)">{{ account }}</mat-option>
+    </div>
+  </mat-select>
+</mat-form-field>
