@@ -1,41 +1,61 @@
 <mat-form-field appearance="outline">
   <mat-label>name</mat-label>
-  <input matInput [(ngModel)]="name" >
+  <input matInput [(ngModel)]="name" />
 </mat-form-field>
 
 <mat-form-field appearance="outline">
   <mat-label>payfor</mat-label>
-  <input matInput [(ngModel)]="payfor" >
+  <input matInput [(ngModel)]="payfor" />
 </mat-form-field>
 
 <mat-form-field appearance="outline">
   <mat-label>purpose</mat-label>
-  <input matInput [(ngModel)]="purpose">
+  <input matInput [(ngModel)]="purpose" />
 </mat-form-field>
 
 <mat-form-field appearance="outline">
   <mat-label>detail</mat-label>
-  <input matInput [(ngModel)]="detail">
+  <input matInput [(ngModel)]="detail" />
 </mat-form-field>
 
 <mat-form-field appearance="outline">
   <mat-label>accountList</mat-label>
   <mat-select>
     <div *ngFor="let account of accountList">
-      <mat-option [value]="account" (click)="see(account)">{{ account }}</mat-option>
+      <mat-option [value]="account" (click)="see(account)">{{
+        account
+      }}</mat-option>
     </div>
   </mat-select>
 </mat-form-field>
 
 <mat-form-field appearance="outline">
   <mat-label>detail</mat-label>
-  <input matInput [(ngModel)]="detail">
+  <input matInput [(ngModel)]="detail" />
 </mat-form-field>
 
 <mat-form-field appearance="outline">
   <mat-label>detail</mat-label>
-  <input matInput [(ngModel)]="detail">
+  <input matInput [(ngModel)]="detail" />
 </mat-form-field>
 
-<button mat-flat-button color="primary" (click)="inside()">what is inside</button>
+<!-- 日本語対応する -->
+<mat-form-field appearance="outline">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
 
+
+ <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" class="example-right-align" placeholder="0" [(ngModel)]="ammount">
+    <span matPrefix>￥&nbsp;</span>
+    <span matSuffix>円</span>
+  </mat-form-field>
+
+<button mat-flat-button color="primary" (click)="inside()">
+  what is inside
+</button>

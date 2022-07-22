@@ -7,10 +7,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SampleComponent } from './sample/sample.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BgCloudComponent } from './bg-cloud/bg-cloud.component';
 
 
 @NgModule({
-  declarations: [AppComponent, SampleComponent],
+  declarations: [AppComponent, SampleComponent, BgCloudComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

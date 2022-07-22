@@ -18,6 +18,7 @@ export class SampleComponent implements OnInit {
   purpose!: string;
   detail!: string;
   payfor!: string;
+  ammount!: number;
 
   accountList: string[] = [
     '厚生費',
