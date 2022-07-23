@@ -12,13 +12,13 @@ export class SampleComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  //toppings = new FormControl('');
-
   name!: string;
   purpose!: string;
   detail!: string;
   payfor!: string;
   ammount!: number;
+  in!: string;
+  out!: string;
 
   accountList: string[] = [
     '厚生費',

@@ -1,61 +1,73 @@
-<mat-form-field appearance="outline">
-  <mat-label>name</mat-label>
-  <input matInput [(ngModel)]="name" />
-</mat-form-field>
+<div class="grid grid-cols-2 gap-4">
+  <div>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>name</mat-label>
+      <input matInput [(ngModel)]="name" />
+    </mat-form-field>
 
-<mat-form-field appearance="outline">
-  <mat-label>payfor</mat-label>
-  <input matInput [(ngModel)]="payfor" />
-</mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>payfor</mat-label>
+      <input matInput [(ngModel)]="payfor" />
+    </mat-form-field>
 
-<mat-form-field appearance="outline">
-  <mat-label>purpose</mat-label>
-  <input matInput [(ngModel)]="purpose" />
-</mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>purpose</mat-label>
+      <input matInput [(ngModel)]="purpose" />
+    </mat-form-field>
 
-<mat-form-field appearance="outline">
-  <mat-label>detail</mat-label>
-  <input matInput [(ngModel)]="detail" />
-</mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>detail</mat-label>
+      <input matInput [(ngModel)]="detail" />
+    </mat-form-field>
 
-<mat-form-field appearance="outline">
-  <mat-label>accountList</mat-label>
-  <mat-select>
-    <div *ngFor="let account of accountList">
-      <mat-option [value]="account" (click)="see(account)">{{
-        account
-      }}</mat-option>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>accountList</mat-label>
+      <mat-select>
+        <div *ngFor="let account of accountList">
+          <mat-option [value]="account" (click)="see(account)">{{
+            account
+          }}</mat-option>
+        </div>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>who was with you(in)</mat-label>
+      <input matInput [(ngModel)]="in" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>who was with you(out)</mat-label>
+      <input matInput [(ngModel)]="out" />
+    </mat-form-field>
+
+    <!-- 日本語対応する -->
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" floatLabel="always" class="w-full">
+      <mat-label>Amount</mat-label>
+      <input
+        matInput
+        type="number"
+        class="example-right-align"
+        placeholder="0"
+        [(ngModel)]="ammount"
+      />
+      <span matPrefix>￥&nbsp;</span>
+      <span matSuffix>円</span>
+    </mat-form-field>
+    <div class="mt-3 flex">
+      <button mat-flat-button color="primary" (click)="inside()">
+        送信
+      </button>
     </div>
-  </mat-select>
-</mat-form-field>
+  </div>
+</div>
 
-<mat-form-field appearance="outline">
-  <mat-label>detail</mat-label>
-  <input matInput [(ngModel)]="detail" />
-</mat-form-field>
-
-<mat-form-field appearance="outline">
-  <mat-label>detail</mat-label>
-  <input matInput [(ngModel)]="detail" />
-</mat-form-field>
-
-<!-- 日本語対応する -->
-<mat-form-field appearance="outline">
-  <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepicker]="picker">
-  <mat-hint>MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-
-
- <mat-form-field appearance="fill" floatLabel="always">
-    <mat-label>Amount</mat-label>
-    <input matInput type="number" class="example-right-align" placeholder="0" [(ngModel)]="ammount">
-    <span matPrefix>￥&nbsp;</span>
-    <span matSuffix>円</span>
-  </mat-form-field>
-
-<button mat-flat-button color="primary" (click)="inside()">
-  what is inside
-</button>
