@@ -9,10 +9,11 @@ import { SampleComponent } from './sample/sample.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BgCloudComponent } from './bg-cloud/bg-cloud.component';
 import { SigninComponent } from './signin/signin.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
-  declarations: [AppComponent, SampleComponent, BgCloudComponent, SigninComponent],
+  declarations: [AppComponent, SampleComponent, BgCloudComponent, SigninComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -6,12 +6,12 @@
   />
   <span>Web-Expenses</span>
 </mat-toolbar>
-<div class="flex justify-end p-5 text-xl text-bold">{{today | date:"yyyy年MM月dd日"}}</div>
-<div class="m-auto max-w-4xl mt-4" role="main">
-  <div class="text-5xl font-semibold text-center py-10">{{title}}</div>
-  <app-sample></app-sample>
+<div class="flex justify-end pt-4 pr-5 text-xl text-bold">{{ today | date: "令和yyyy年MM月dd日" }}</div>
+<div class="flex justify-end pt-4 pr-5 text-xl text-bold">氏名 : {{ userName }}</div>
+<div class="m-auto max-w-4xl mt-2" role="main">
+  <div class="text-5xl font-semibold text-center py-8">{{ title }}</div>
+  <!-- <app-sample></app-sample> -->
   <app-bg-cloud></app-bg-cloud>
 </div>
-
 
 <router-outlet></router-outlet>
