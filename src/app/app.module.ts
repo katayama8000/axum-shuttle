@@ -8,10 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SampleComponent } from './sample/sample.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BgCloudComponent } from './bg-cloud/bg-cloud.component';
+import { SigninComponent } from './signin/signin.component';
 
 
 @NgModule({
-  declarations: [AppComponent, SampleComponent, BgCloudComponent],
+  declarations: [AppComponent, SampleComponent, BgCloudComponent, SigninComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
