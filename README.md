@@ -9,3 +9,13 @@
 ### 候補
 - Vue.js firebase or supabase
 - React.js firebase or supabase
+
+### page
+- ログイン
+- パスワード変更
+- 入力
+- 管理者
+  - メンバー編集
+  - 申請書承認
+
+
