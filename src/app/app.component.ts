@@ -9,4 +9,5 @@ export class AppComponent {
   title = '経費精算';
   public today = new Date();
   public userName: string = 'katayama';
+  showFiller = false;
 }
