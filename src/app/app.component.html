@@ -1,17 +1,37 @@
-<mat-toolbar color="primary">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-  />
-  <span>Web-Expenses</span>
-</mat-toolbar>
-<div class="flex justify-end p-5 text-xl text-bold">{{today | date:"yyyy年MM月dd日"}}</div>
-<div class="m-auto max-w-4xl mt-4" role="main">
-  <div class="text-5xl font-semibold text-center py-10">{{title}}</div>
-  <app-sample></app-sample>
-  <app-bg-cloud></app-bg-cloud>
-</div>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="over">
+    <p>Auto-resizing sidenav</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
 
+  <div class="example-sidenav-content">
+    <mat-toolbar color="primary">
+      <img
+        width="40"
+        alt="Angular Logo"
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+      />
+      <span>Web-Expenses</span>
+    </mat-toolbar>
+    <button type="button" mat-button (click)="drawer.toggle()">
+      ToggleButton
+    </button>
+    <div class="flex justify-end pt-4 pr-5 text-xl text-bold">
+      {{ today | date: "令和yyyy年MM月dd日" }}
+    </div>
+    <div class="flex justify-end pt-4 pr-5 text-xl text-bold">
+      氏名 : {{ userName }}
+    </div>
+    <div class="m-auto max-w-4xl mt-2" role="main">
+      <div class="text-5xl font-semibold text-center py-8">{{ title }}</div>
+
+      <!-- <app-sample></app-sample> -->
+      <!-- <app-bg-cloud></app-bg-cloud> -->
+    </div>
+  </div>
+</mat-drawer-container>
 
 <router-outlet></router-outlet>
