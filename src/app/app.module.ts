@@ -11,10 +11,11 @@ import { BgCloudComponent } from './bg-cloud/bg-cloud.component';
 import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
+import { MemberComponent } from './member/member.component';
 
 
 @NgModule({
-  declarations: [AppComponent, SampleComponent, BgCloudComponent, SigninComponent, HomeComponent, AdminComponent],
+  declarations: [AppComponent, SampleComponent, BgCloudComponent, SigninComponent, HomeComponent, AdminComponent, MemberComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

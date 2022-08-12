@@ -12,6 +12,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 const materialModules = [
   MatButtonModule,
@@ -27,6 +30,9 @@ const materialModules = [
   MatNativeDateModule,
   MatToolbarModule,
   MatSidenavModule,
+  MatCardModule,
+  MatGridListModule,
+  MatSlideToggleModule,
 ];
 
 @NgModule({
