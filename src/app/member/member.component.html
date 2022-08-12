@@ -7,13 +7,14 @@
       >
         <div class="p-2 rounded-lg">
           <mat-card (click)="toggleStatus(m)">
-            <div>{{ formattedDate }}</div>
             <mat-card-title>{{ m.userId }}/{{ m.name }}</mat-card-title>
             <mat-card-subtitle>{{ m.position }}</mat-card-subtitle>
             <mat-card-content>{{ m.status.status }}</mat-card-content>
 
             <mat-slide-toggle (click)="toggleIsBreak(m, $event)">
-              <div *ngIf="m.isBreak; else elseBlock">昼休憩中</div>
+              <div *ngIf="m.isBreak; else elseBlock">
+                {{ formattedDate }}から昼休憩
+              </div>
               <div>
                 <ng-template #elseBlock>勤務中</ng-template>
               </div>
