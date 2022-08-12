@@ -7,4 +7,5 @@ export type MEMBER = {
     bgColor: 'red' | 'blue' | 'green';
   };
   isBreak: boolean;
+  breakStartTime: string;
 };

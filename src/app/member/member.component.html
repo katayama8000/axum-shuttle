@@ -7,6 +7,7 @@
       >
         <div class="p-2 rounded-lg">
           <mat-card (click)="toggleStatus(m)">
+            <div>{{ formattedDate }}</div>
             <mat-card-title>{{ m.userId }}/{{ m.name }}</mat-card-title>
             <mat-card-subtitle>{{ m.position }}</mat-card-subtitle>
             <mat-card-content>{{ m.status.status }}</mat-card-content>
@@ -17,10 +18,6 @@
                 <ng-template #elseBlock>勤務中</ng-template>
               </div>
             </mat-slide-toggle>
-            <!-- <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions> -->
           </mat-card>
         </div>
       </div>

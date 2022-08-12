@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { MEMBER } from 'src/app/type/member.model';
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',
+  providers: [DatePipe],
 })
 export class MemberComponent implements OnInit {
-  constructor() {}
+  constructor(public datePipe: DatePipe) {}
 
   ngOnInit(): void {}
   member: MEMBER[] = [
@@ -15,6 +17,7 @@ export class MemberComponent implements OnInit {
       position: '役員',
       status: { status: '退社', bgColor: 'red' },
       isBreak: false,
+      breakStartTime: '',
     },
     {
       name: 'Mary',
@@ -22,6 +25,7 @@ export class MemberComponent implements OnInit {
       position: 'リーダー',
       status: { status: '退社', bgColor: 'red' },
       isBreak: false,
+      breakStartTime: '',
     },
     {
       name: 'Mike',
@@ -29,6 +33,7 @@ export class MemberComponent implements OnInit {
       position: '一般',
       status: { status: '退社', bgColor: 'red' },
       isBreak: false,
+      breakStartTime: '',
     },
     {
       name: 'Jane',
@@ -36,12 +41,19 @@ export class MemberComponent implements OnInit {
       position: '一般',
       status: { status: '退社', bgColor: 'red' },
       isBreak: false,
+      breakStartTime: '',
+    },
+    {
+      name: 'Tom',
+      userId: 5,
+      position: '一般',
+      status: { status: '退社', bgColor: 'red' },
+      isBreak: false,
+      breakStartTime: '',
     },
   ];
 
-  onClick(m: MEMBER): void {
-    console.log(m);
-  }
+  formattedDate = this.datePipe.transform(new Date(), 'HH:mm:ss', '+0900');
 
   toggleIsBreak(member: MEMBER, $event: any): void {
     member.isBreak = !member.isBreak;
