@@ -8,3 +8,13 @@ Status:        running
 Last Updated:  2023-07-29T07:30:11Z
 URI:           https://axum-katayama8000.shuttleapp.rs
 ```
+
+## command
+- run
+```bash
+cargo shuttle run
+```
+- deploy
+```bash
+cargo shuttle deploy
+```
