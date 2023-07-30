@@ -10,7 +10,7 @@ URI:           https://axum-katayama8000.shuttleapp.rs
 ```
 
 ## command
-- run
+- up
 ```bash
 cargo shuttle run
 ```
