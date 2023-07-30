@@ -1,5 +1,8 @@
 ## docs
+### axum
 - https://docs.shuttle.rs/examples/axum
+### AWS RDS
+- https://docs.shuttle.rs/resources/shuttle-aws-rds
 
 ```bash
 Service Name:  axum-katayama8000
