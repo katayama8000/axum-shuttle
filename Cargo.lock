@@ -195,17 +195,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "axum-katayama8000"
-version = "0.1.0"
-dependencies = [
- "axum 0.7.4",
- "serde_json",
- "shuttle-axum",
- "shuttle-runtime",
- "tokio",
-]
-
-[[package]]
 name = "backtrace"
 version = "0.3.68"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1669,6 +1658,17 @@ checksum = "a14526f11e04f2a869e650b56aff0d7da0e6eb41774c9336dee6a2702560dd8f"
 dependencies = [
  "axum 0.7.4",
  "shuttle-runtime",
+]
+
+[[package]]
+name = "shuttle-axum-example"
+version = "0.1.0"
+dependencies = [
+ "axum 0.7.4",
+ "serde_json",
+ "shuttle-axum",
+ "shuttle-runtime",
+ "tokio",
 ]
 
 [[package]]
