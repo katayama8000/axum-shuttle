@@ -13,6 +13,10 @@ URI:           https://axum-katayama8000.shuttleapp.rs
 ```
 
 ## command
+- login
+```bash
+cargo shuttle login
+```
 - up
 ```bash
 cargo shuttle run
