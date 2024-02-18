@@ -4,10 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-axum = "0.7.3"
-serde = { version = "1.0.188", features = ["derive"] }
-shuttle-axum = "0.39.0"
+rocket = { version = "0.5.0", features = ["json"] }
+serde = "1.0.148"
+shuttle-rocket = "0.39.0"
 shuttle-runtime = "0.39.0"
 shuttle-shared-db = { version = "0.39.0", features = ["postgres", "sqlx"] }
 sqlx = "0.7.1"
-tokio = "1.28.2"
+tokio = "1.26.0"

@@ -1,61 +1,54 @@
-use axum::{
-    extract::{Path, State},
-    http::StatusCode,
-    response::IntoResponse,
-    routing::{get, post},
-    Json, Router,
-};
+#[macro_use]
+extern crate rocket;
+
+use rocket::response::status::BadRequest;
+use rocket::serde::json::Json;
+use rocket::State;
 use serde::{Deserialize, Serialize};
 use shuttle_runtime::CustomError;
-use sqlx::{FromRow, PgPool};
+use sqlx::{Executor, FromRow, PgPool};
 
-async fn retrieve(
-    Path(id): Path<i32>,
-    State(state): State<MyState>,
-) -> Result<impl IntoResponse, impl IntoResponse> {
-    match sqlx::query_as::<_, Todo>("SELECT * FROM todos WHERE id = $1")
+#[get("/<id>")]
+async fn retrieve(id: i32, state: &State<MyState>) -> Result<Json<Todo>, BadRequest<String>> {
+    let todo = sqlx::query_as("SELECT * FROM todos WHERE id = $1")
         .bind(id)
         .fetch_one(&state.pool)
         .await
-    {
-        Ok(todo) => Ok((StatusCode::OK, Json(todo))),
-        Err(e) => Err((StatusCode::BAD_REQUEST, e.to_string())),
-    }
+        .map_err(|e| BadRequest(e.to_string()))?;
+
+    Ok(Json(todo))
 }
 
+#[post("/", data = "<data>")]
 async fn add(
-    State(state): State<MyState>,
-    Json(data): Json<TodoNew>,
-) -> Result<impl IntoResponse, impl IntoResponse> {
-    match sqlx::query_as::<_, Todo>("INSERT INTO todos (note) VALUES ($1) RETURNING id, note")
+    data: Json<TodoNew>,
+    state: &State<MyState>,
+) -> Result<Json<Todo>, BadRequest<String>> {
+    let todo = sqlx::query_as("INSERT INTO todos(note) VALUES ($1) RETURNING id, note")
         .bind(&data.note)
         .fetch_one(&state.pool)
         .await
-    {
-        Ok(todo) => Ok((StatusCode::CREATED, Json(todo))),
-        Err(e) => Err((StatusCode::BAD_REQUEST, e.to_string())),
-    }
+        .map_err(|e| BadRequest(e.to_string()))?;
+
+    Ok(Json(todo))
 }
 
-#[derive(Clone)]
 struct MyState {
     pool: PgPool,
 }
 
 #[shuttle_runtime::main]
-async fn axum(#[shuttle_shared_db::Postgres] pool: PgPool) -> shuttle_axum::ShuttleAxum {
-    sqlx::migrate!()
-        .run(&pool)
+async fn rocket(#[shuttle_shared_db::Postgres] pool: PgPool) -> shuttle_rocket::ShuttleRocket {
+    pool.execute(include_str!("../schema.sql"))
         .await
         .map_err(CustomError::new)?;
 
     let state = MyState { pool };
-    let router = Router::new()
-        .route("/todos", post(add))
-        .route("/todos/:id", get(retrieve))
-        .with_state(state);
+    let rocket = rocket::build()
+        .mount("/todo", routes![retrieve, add])
+        .manage(state);
 
-    Ok(router.into())
+    Ok(rocket.into())
 }
 
 #[derive(Deserialize)]
